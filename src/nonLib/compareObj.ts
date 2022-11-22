@@ -1,5 +1,6 @@
 import { compareArray } from "./compareArray";
 
+// this will recursively compare every element of the object
 export const compareObj = (
   input: Record<string, any>,
   target: Record<string, any>

@@ -1,4 +1,7 @@
 // this will recursively compare every element of the array
+
+import { compareObj } from "./compareObj";
+
 // array with same element but different order will still be count as equal
 export const compareArray = (
   input: Array<any>,
@@ -15,6 +18,10 @@ export const compareArray = (
     // if the element is another array
     if (Array.isArray(sortedInput[i]) && Array.isArray(sortedTarget[i])) {
       return compareArray(sortedInput[i], sortedTarget[i]);
+    }
+
+    if (sortedInput[i] instanceof Object && sortedTarget[i] instanceof Object) {
+      return compareObj(sortedInput[i], sortedTarget[i]);
     }
 
     if (sortedInput[i] !== sortedTarget[i]) {
